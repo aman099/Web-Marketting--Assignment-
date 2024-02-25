@@ -1,7 +1,7 @@
 import Star from "./Star";
 import Button from "./Button";
 
-function GridRating_3({ idx, data }) {
+function GridRating({ idx, data }) {
   const { rating_h2, rating_p } = data;
 
   return (
@@ -21,4 +21,4 @@ function GridRating_3({ idx, data }) {
   );
 }
 
-export default GridRating_3;
+export default GridRating;

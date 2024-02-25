@@ -1,5 +1,3 @@
-import React from "react";
-
 function ConditionalBestTag({ idx, conditionalBestTag }) {
   return (
     <span className={`absolute ${conditionalBestTag}`}>

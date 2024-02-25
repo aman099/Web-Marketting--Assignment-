@@ -1,6 +1,6 @@
 import Button from "../main-card/Button";
 
-function CardFlexBtn_3() {
+function CardFlexBtn() {
   return (
     <div className="flex-3">
       <Button classNameBtn="btn btn-view" classNameContainer="btn-blue mtop-20">
@@ -10,4 +10,4 @@ function CardFlexBtn_3() {
   );
 }
 
-export default CardFlexBtn_3;
+export default CardFlexBtn;

@@ -1,6 +1,6 @@
-import GridImg_1 from "./GridImg_1";
-import GridInfo_2 from "./GridInfo_2";
-import GridRating_3 from "./GridRating_3";
+import GridImg from "./GridImg";
+import GridInfo from "./GridInfo";
+import GridRating from "./GridRating";
 
 import IdNumber from "./IdNumber";
 import ConditionalBestTag from "./ConditionalBestTag";
@@ -25,9 +25,9 @@ function CardGrid({ mainCardData }) {
               conditionalBestTag={conditionalBestTag}
             />
             <IdNumber idx={idx} />
-            <GridImg_1 idx={idx} />
-            <GridInfo_2 idx={idx} data={data} />
-            <GridRating_3 idx={idx} data={data} />
+            <GridImg idx={idx} />
+            <GridInfo idx={idx} data={data} />
+            <GridRating idx={idx} data={data} />
           </div>
         );
       })}

@@ -1,6 +1,6 @@
 import Computer from "../../assets/img/computer1.png";
 
-function CardFlexImg_1() {
+function CardFlexImg() {
   return (
     <div className="flex-1">
       <img src={Computer} alt="Computer" />
@@ -8,4 +8,4 @@ function CardFlexImg_1() {
   );
 }
 
-export default CardFlexImg_1;
+export default CardFlexImg;

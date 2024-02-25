@@ -1,6 +1,10 @@
+@use "./scss/partials/colors";
+@use "./scss/partials/breakpoints";
+@use "./scss/partials/maxwidth";
+
 /* Utility classes */
 .center {
-  max-width: 1000px;
+  max-width: maxwidth.$maxWidth_3;
   margin: 0 auto;
 }
 .flex {
@@ -12,10 +16,11 @@
 }
 
 hr {
-  background-color: var(--greyish);
+  background-color: colors.$greyish;
   height: 3px;
   border: none;
 }
+
 .m-top-bot {
   margin: 30px 0;
 }
@@ -27,17 +32,17 @@ hr {
 }
 
 /* Media-Queries */
-@media only screen and (min-width: 1600px) {
+@media only screen and (min-width: breakpoints.$breakpoint_1) {
   html {
     font-size: x-large;
   }
 
   .center {
-    max-width: 1400px;
+    max-width: maxwidth.$maxWidth_1;
   }
 }
 
-@media only screen and (min-width: 1400px) and (max-width: 1600px) {
+@media only screen and (min-width: breakpoints.$breakpoint_2) and (max-width: breakpoints.$breakpoint_1) {
   html {
     font-size: larger;
   }
@@ -47,53 +52,53 @@ hr {
   }
 
   .center {
-    max-width: 1200px;
+    max-width: maxwidth.$maxWidth_2;
   }
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: breakpoints.$breakpoint_3) {
   .center {
-    max-width: 900px;
+    max-width: maxwidth.$maxWidth_4;
   }
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: breakpoints.$breakpoint_4) {
   .center {
-    max-width: 800px;
+    max-width: maxwidth.$maxWidth_5;
   }
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: breakpoints.$breakpoint_5) {
   .center {
-    max-width: 700px;
+    max-width: maxwidth.$maxWidth_6;
   }
 }
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: breakpoints.$breakpoint_6) {
   .center {
-    max-width: 600px;
-  }
-}
-
-@media only screen and (max-width: 650px) {
-  .center {
-    max-width: 500px;
+    max-width: maxwidth.$maxWidth_7;
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: breakpoints.$breakpoint_7) {
   .center {
-    max-width: 450px;
+    max-width: maxwidth.$maxWidth_8;
   }
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: breakpoints.$breakpoint_8) {
   .center {
-    max-width: 400px;
+    max-width: maxwidth.$maxWidth_9;
   }
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: breakpoints.$breakpoint_9) {
   .center {
-    max-width: 350px;
+    max-width: maxwidth.$maxWidth_10;
+  }
+}
+
+@media only screen and (max-width: breakpoints.$breakpoint_10) {
+  .center {
+    max-width: maxwidth.$maxWidth_11;
   }
 }

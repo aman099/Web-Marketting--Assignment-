@@ -1,6 +1,6 @@
 import computer from "../../assets/img/computer1.png";
 
-function GridImg_1({ idx }) {
+function GridImg({ idx }) {
   return (
     <figure className="grid-1">
       <img src={computer} alt="Computer" />
@@ -11,4 +11,4 @@ function GridImg_1({ idx }) {
   );
 }
 
-export default GridImg_1;
+export default GridImg;

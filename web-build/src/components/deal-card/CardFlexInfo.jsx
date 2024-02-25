@@ -1,4 +1,4 @@
-function CardFlexInfo_2({ data }) {
+function CardFlexInfo({ data }) {
   const {
     p_span_1,
     p_span_2,
@@ -28,4 +28,4 @@ function CardFlexInfo_2({ data }) {
   );
 }
 
-export default CardFlexInfo_2;
+export default CardFlexInfo;

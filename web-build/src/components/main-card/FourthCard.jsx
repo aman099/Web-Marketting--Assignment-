@@ -1,5 +1,3 @@
-import React from "react";
-
 function FourthCard() {
   return (
     <div className="fourth_conditinal">
