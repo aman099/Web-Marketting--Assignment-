@@ -2,6 +2,12 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Install node_modules directory
+
+Open this project in your VS-Code, or any dev environment you work with after Git cloning it.
+Then open the integrated Terminal. Their run command _npm install_ to install all the
+dependencies and dev-dependancies needed for this project.
+
 ## Available Scripts
 
 In the project directory, you can run:
