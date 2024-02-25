@@ -1,0 +1,171 @@
+.card-deal-container h3 {
+  font-weight: 400;
+  font-size: 30px;
+  margin: 20px 0;
+  margin-top: 60px;
+}
+
+.card-deal {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.deal-card-flex {
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--white);
+  padding: 20px;
+}
+
+.flex-2 {
+  text-align: center;
+  margin-top: 20px;
+}
+.flex-2 .info .discount {
+  text-align: left;
+  margin-bottom: 10px;
+}
+.flex-2 .info .discount span {
+  font-size: 12px;
+  /*  */
+  color: #0855a1;
+  padding: 2px 4px;
+  background-color: #f2f4f7;
+  display: inline-block;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 400;
+}
+.flex-2 .info p:nth-child(2) {
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.flex-2 .info p:nth-of-type(3) {
+  text-align: left;
+  color: var(--darker-grey);
+  font-size: 14px;
+  line-height: 24px;
+  margin-bottom: 6px;
+}
+.flex-2 .info .price-tag {
+  text-align: left;
+  align-items: baseline;
+}
+.flex-2 .info .price-tag span:nth-child(1) {
+  color: var(--darker-grey-2);
+  font-weight: 20px;
+}
+.flex-2 .info .price-tag span:nth-child(2) {
+  color: var(--light-grey);
+  font-size: 14px;
+}
+.flex-2 .info .price-tag span:nth-child(3) {
+  color: var(--orange);
+  font-size: 12px;
+}
+.flex-3 {
+  flex-grow: 1 !important;
+  width: 100%;
+}
+
+.btn-blue.mtop-20 {
+  margin-top: 10px;
+}
+.btn-blue.mtop-20 .btn-view {
+  height: max-content;
+  width: 280px;
+}
+
+/* Media-Query */
+@media only screen and (min-width: 1600px) {
+  .flex-1 img {
+    height: 160px;
+  }
+
+  .flex-2 .info {
+    font-size: x-large;
+  }
+
+  /* Discount span */
+  .flex-2 .info .discount span {
+    font-size: 20px;
+  }
+
+  /* Card Deal Section */
+  .card-deal {
+    gap: 0;
+  }
+}
+
+@media only screen and (min-width: 1400px) and (max-width: 1600px) {
+  .flex-1 img {
+    height: 140px;
+  }
+
+  .flex-2 .info {
+    font-size: larger;
+  }
+
+  /* Discount span */
+  .flex-2 .info .discount span {
+    font-size: 15px;
+  }
+
+  /* Card Deal Section */
+  .card-deal {
+    gap: 0;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  /* Card Deal Section */
+  /* .card-deal {
+    gap: 0;
+  } */
+
+  .deal-card-flex {
+    width: 100%;
+    place-content: center;
+  }
+
+  .btn-blue.mtop-20 .btn-view {
+    width: 250px;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .btn-blue.mtop-20 .btn-view {
+    width: 210px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .btn-blue.mtop-20 .btn-view {
+    width: 180px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  /* .btn-blue.mtop-20 .btn-view {
+    width: 180px;
+  } */
+  .card-deal-container h3 {
+    text-align: center;
+    font-size: 26px;
+  }
+
+  .deal-card-flex {
+    width: 70%;
+  }
+  .card-deal {
+    display: flex;
+    flex-direction: column;
+  }
+  .btn-blue.mtop-20 {
+    text-align: center;
+  }
+  .btn-blue.mtop-20 .btn-view {
+    width: 80%;
+  }
+}

@@ -1,0 +1,221 @@
+@use "../../scss/partials/colors";
+@use "../../scss/partials/breakpoints";
+@use "../../scss/partials/mixins";
+
+// Popping Menu
+.popup-menu {
+  position: relative;
+  width: 0;
+  transition: width 0.4s ease-in-out;
+  z-index: 9999;
+  &.pop {
+    width: 100%;
+  }
+  .x {
+    position: absolute;
+    top: 13px;
+    right: 20px;
+    width: 20px;
+    height: 20px;
+    z-index: 999999;
+    animation: upDown infinite 1s ease-in;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+    cursor: pointer;
+    &.pop {
+      opacity: 1;
+    }
+    i {
+      font-size: 24px;
+      color: colors.$white;
+      &:active {
+        color: colors.$orange;
+      }
+    }
+  }
+  .popup-menu-container {
+    @include mixins.flexColAlign;
+    gap: 20px;
+    position: absolute;
+    background: transparent;
+    box-shadow: 0 10px 14px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(16px);
+    padding: 34px 0px;
+    z-index: 999;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+    &.pop {
+      opacity: 1;
+    }
+    li {
+      text-transform: uppercase;
+      font-weight: 700;
+      background-color: #0000001b;
+      border-radius: 5%;
+      padding: 10px;
+      white-space: nowrap;
+      text-align: center;
+      /* Copied styles from it's Parent */
+      /* opacity: 0; */
+      width: 100%;
+      z-index: 9999;
+      &:nth-child(1) {
+        transition: all 1s ease-in-out;
+        opacity: 0;
+        width: 100%;
+        &.pop {
+          width: 50%;
+          opacity: 1;
+        }
+      }
+      &:nth-child(2) {
+        transition: all 1.3s ease-in-out;
+        opacity: 0;
+        width: 100%;
+        &.pop {
+          width: 50%;
+          opacity: 1;
+        }
+      }
+      &:nth-child(3) {
+        transition: all 1.6s ease-in-out;
+        opacity: 0;
+        width: 100%;
+        &.pop {
+          width: 50%;
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+@keyframes upDown {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+// Navbar
+#navbar {
+  background-color: colors.$black;
+  color: colors.$white;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+  .navbar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    .nav-flex {
+      gap: 80px;
+    }
+  }
+}
+
+.input-container {
+  position: relative;
+  input {
+    position: relative;
+    width: 200px;
+    padding: 10px;
+    padding-left: 34px;
+    padding-right: 20px;
+    border-radius: 8px;
+    outline: none;
+    border: none;
+    transition: all 0.2s ease-in;
+    margin-right: 10px;
+    &:focus {
+      transform: scaleY(1.1);
+      + span i {
+        color: orangered;
+      }
+    }
+  }
+  i {
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+    color: colors.$black;
+    font-size: 16px;
+    scale: 1.1;
+    transition: all 0.2s ease-in;
+  }
+}
+
+ul {
+  li {
+    list-style: none;
+  }
+}
+
+.hamburger {
+  display: none;
+}
+
+// Media-Query
+@media only screen and (min-width: breakpoints.$breakpoint_1) {
+  .input-container {
+    i {
+      top: 15px;
+    }
+  }
+}
+@media only screen and (max-width: breakpoints.$breakpoint_5) {
+  #navbar {
+    .navbar-container {
+      .nav-flex {
+        gap: 40px;
+      }
+    }
+  }
+}
+@media only screen and (max-width: breakpoints.$breakpoint_6) {
+  #navbar {
+    margin-bottom: 20px;
+    .navbar-container {
+      .nav-flex {
+        gap: 10px;
+      }
+    }
+  }
+}
+@media only screen and (max-width: breakpoints.$breakpoint_7) {
+  #navbar {
+    .navbar-container {
+      justify-content: space-between;
+      .nav-flex {
+        display: none;
+      }
+      .hamburger {
+        display: block;
+        cursor: pointer;
+        .hamburger-container {
+          padding: 10px;
+          border-radius: 10%;
+          i {
+            font-size: 30px;
+            &:active {
+              color: colors.$orange;
+            }
+            &:focus .hamburger {
+              outline: none;
+              border: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

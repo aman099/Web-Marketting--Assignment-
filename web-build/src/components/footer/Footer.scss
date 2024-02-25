@@ -1,0 +1,75 @@
+@use "../../scss/partials/colors";
+@use "../../scss/partials/breakpoints";
+
+#footer {
+  background-color: colors.$black;
+  margin-top: 50px;
+
+  .footer-container {
+    color: colors.$lightish-grey;
+    grid-template-columns: repeat(3, 1fr);
+    /* place-items: flex-start; */
+    padding: 40px 0;
+
+    .footer-menu {
+      flex-direction: column;
+
+      li:first-child {
+        text-transform: uppercase;
+        color: colors.$white;
+        margin-bottom: 10px;
+      }
+
+      li:not(:first-child) {
+        position: relative;
+        cursor: pointer;
+        transition: color 0.3s ease-in;
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 0%;
+          height: 0.09px;
+          background-color: colors.$white;
+          transition: width 0.3s ease-in;
+        }
+
+        &:hover::after {
+          width: 50%;
+        }
+
+        &:hover {
+          color: colors.$white;
+        }
+      }
+    }
+
+    .options {
+      align-items: center;
+
+      select {
+        color: colors.$lightish-grey;
+        background-color: colors.$black;
+        border: none;
+      }
+    }
+  }
+}
+
+// Media-Query
+@media only screen and (min-width: breakpoints.$breakpoint_1) {
+  #footer {
+    .footer-container {
+      .options {
+        select {
+          option {
+            font-size: medium;
+            color: colors.$black;
+          }
+        }
+      }
+    }
+  }
+}

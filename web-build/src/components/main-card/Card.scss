@@ -1,0 +1,299 @@
+@use "../../scss/partials/colors";
+@use "../../scss/partials/breakpoints";
+@use "../../scss/partials/mixins";
+
+/* Utility class */
+.flex-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.highlights {
+  h5 {
+    font-size: 16px;
+    font-weight: 700;
+  }
+  p {
+    padding: 10px;
+  }
+}
+
+.show-more {
+  .show-more-btn {
+    background: none;
+    color: colors.$btn-sky-blue;
+    border: none;
+    cursor: pointer;
+    gap: 4px;
+    &:hover {
+      filter: brightness(80%);
+    }
+    span {
+      i {
+        color: colors.$btn-sky-blue;
+        font-size: 10px;
+      }
+    }
+  }
+}
+
+.btn {
+  width: 232px;
+  height: 48px;
+  padding: 10px;
+  font-weight: 400;
+  font-size: 16px;
+  border: none;
+  border-radius: 12px;
+  transform: scale(1);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  &:hover {
+    filter: brightness(110%);
+    transform: scale(1.02) rotate(0.02deg);
+    -webkit-box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.45);
+    -moz-box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.45);
+    box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.45);
+  }
+}
+.main-card-grid {
+  margin-top: 50px;
+  background-color: colors.$white;
+  padding: 20px;
+  gap: 50px;
+  position: relative;
+}
+/* Absolute Positioned Conditional Element */
+.absolute {
+  content: "Best Value";
+  white-space: nowrap;
+  position: absolute;
+  top: -10px;
+  left: -5px;
+  width: fit-content;
+  height: max-content;
+  background-color: #ff7724;
+  color: colors.$white;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border-radius: 0 8px 8px 0;
+}
+.none {
+  display: none;
+}
+/* Absolute Positioned Element */
+.id-number {
+  white-space: nowrap;
+  position: absolute;
+  top: 55px;
+  left: -20px;
+  border: 1.6px solid colors.$greyish;
+  @include mixins.gridCenter;
+  background-color: colors.$white;
+  color: colors.$darker-grey;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 44px;
+  width: 44px;
+  border-radius: 100%;
+}
+
+.grid-1 {
+  text-align: center;
+  align-self: center;
+  position: relative;
+  img {
+    margin-bottom: 10px;
+  }
+}
+
+.grid-2 {
+  .info {
+    p {
+      line-height: 24px;
+    }
+  }
+}
+.rating {
+  background-color: #f3f9ff;
+  flex-direction: column;
+  text-align: center;
+  padding: 24px 0px;
+}
+.grid-3-rating {
+  text-align: center;
+}
+.rating {
+  .stars {
+    span {
+      i {
+        color: goldenrod;
+      }
+    }
+  }
+}
+.btn-blue {
+  //   margin-top: 80px;
+  margin-top: 280px;
+}
+.btn-view {
+  background-color: colors.$btn-sky-blue;
+  color: colors.$white;
+}
+/* Conditional render style */
+
+.highlights-fourth {
+  background-color: #fff4ed;
+  margin: 0 10px;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 10px;
+  li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    line-height: 20px;
+    span {
+      background-color: colors.$white;
+      color: colors.$btn-sky-blue;
+      border-radius: 4px;
+      padding: 4px 8px;
+    }
+  }
+}
+
+.highlights-checked {
+  margin-left: 20px;
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    line-height: 24px;
+    margin-bottom: 5px;
+    span {
+      width: 20px;
+      height: 20px;
+      display: grid;
+      place-content: center;
+      color: #0855a1;
+      padding: 5px;
+      background-color: #ebf5ff;
+      margin-bottom: 5px;
+      border-radius: 100%;
+      i {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.matop {
+  margin-top: 270px;
+}
+
+.highlights {
+  .discount {
+    color: #0855a1;
+    padding: 2px 4px;
+    background-color: #f2f4f7;
+    display: inline-block;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 400;
+  }
+}
+/* Media-Query */
+@media only screen and (min-width: breakpoints.$breakpoint_1) {
+  .main-card-grid {
+    margin-top: 55px;
+  }
+
+  /* Id Number */
+  .id-number {
+    top: 65px;
+    height: 54px;
+    width: 54px;
+    padding: 30px;
+  }
+
+  /* Show more btn */
+  .show-more {
+    .show-more-btn {
+      font-size: large;
+    }
+  }
+
+  .grid-1 {
+    img {
+      margin-bottom: 14px;
+      height: 160px;
+    }
+  }
+
+  .grid-2 {
+    .info {
+      p {
+        line-height: 36px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: breakpoints.$breakpoint_2) and (max-width: breakpoints.$breakpoint_1) {
+  /* Show more btn */
+  .show-more .show-more-btn {
+    font-size: large;
+  }
+
+  .grid-1 img {
+    margin-bottom: 14px;
+    height: 140px;
+  }
+
+  .grid-2 .info p {
+    line-height: 32px;
+  }
+
+  .absolute {
+  }
+
+  /* Highlights Discount */
+  .highlights .discount {
+    padding: 2px 4px;
+    font-size: 16px;
+  }
+}
+
+// @media only screen and (max-width: 1200px) {
+// }
+
+@media only screen and (max-width: breakpoints.$breakpoint_6) {
+  .main-card-grid {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .grid-1 img {
+    margin-bottom: 10px;
+    height: 140px;
+  }
+
+  .matop {
+    margin-top: 40px;
+  }
+
+  .btn-blue {
+    margin-top: 40px;
+  }
+}
+
+@media only screen and (max-width: breakpoints.$breakpoint_8) {
+  .absolute {
+    z-index: 1;
+  }
+}

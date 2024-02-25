@@ -1,0 +1,133 @@
+.heading h2 {
+  text-align: left;
+  font-size: 48px;
+  line-height: 60px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.heading .date {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.heading .date ul {
+  padding-left: 0;
+}
+.heading .date .left ul li:nth-of-type(2) {
+  margin-right: 16px;
+}
+.heading .date .left .date-left {
+  /* margin: 20px 0; */
+  margin: 14px 0 10px 0;
+}
+
+.heading .date ul li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.heading .date ul li span:first-of-type {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  border: 2px solid #626e79;
+  color: var(--dark-grey);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+.heading .date ul li span:first-of-type:hover {
+  filter: opacity(60%);
+}
+.heading .date ul li span:first-of-type i {
+  font-size: 12px;
+}
+
+.heading .date .right {
+  display: flex;
+  gap: 5px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .heading h2 {
+    text-align: left;
+    font-size: 40px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .heading h2 {
+    font-size: 35px;
+  }
+
+  .heading .date .left .date-left {
+    margin: 4px 0 2px 0;
+  }
+  .heading .date .left .date-left li {
+    font-size: 12px;
+  }
+  .heading .date .right li {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .heading h2 {
+    font-size: 30px;
+    margin-bottom: 5px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .heading h2 {
+    font-size: 28px;
+  }
+  .m-top-bot {
+    margin: 10px 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .mat-1 {
+    gap: 14px;
+  }
+  .mat-2 {
+    gap: 8px;
+  }
+  .heading h2 {
+    font-size: 24px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .mat-1 {
+    gap: 14px;
+  }
+  .mat-2 {
+    gap: 8px;
+  }
+  .heading h2 {
+    font-size: 22px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .heading .date ul li span:first-of-type {
+    width: 24px;
+  }
+
+  .heading .date .left .date-left {
+    gap: 0;
+  }
+  .heading .date .left .date-left li {
+    font-size: small;
+  }
+  .heading .date .right {
+    gap: 0px;
+    font-size: small;
+  }
+  .heading .date ul li {
+    gap: 0px;
+  }
+}
