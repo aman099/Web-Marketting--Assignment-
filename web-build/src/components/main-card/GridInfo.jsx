@@ -1,11 +1,11 @@
 import Button from "./Button";
 import FourthCard from "./FourthCard";
 
-function GridInfo({ idx, data }) {
+function GridInfo({ idx, data, loading }) {
   const { strong, p1, p2 } = data;
 
   return (
-    <div className="grid-2">
+    <div className={`grid-2 ${loading ? "gridInfoSkeleton" : ""}`}>
       <div className="info flex-info">
         <p>
           <strong>{strong}</strong>
@@ -17,11 +17,15 @@ function GridInfo({ idx, data }) {
               <span>25% Off</span>
             </p>
           )}
-          <h5>Main highlights</h5>
-          {idx === 3 ? <FourthCard /> : <p>{p2}</p>}
+          <h5 className={`${loading ? "skeletonMainHighlights" : ""}`}>
+            Main highlights
+          </h5>
+          {idx === 3 ? <FourthCard loading={loading} /> : <p>{p2}</p>}
         </div>
         <Button
-          classNameBtn="show-more-btn flex"
+          classNameBtn={`show-more-btn flex ${
+            loading ? "show-more-btn-skeleton" : ""
+          }`}
           classNameContainer="show-more"
         >
           Show more

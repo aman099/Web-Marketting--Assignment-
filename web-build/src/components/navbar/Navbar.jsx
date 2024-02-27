@@ -7,7 +7,7 @@ import InputNav from "./InputNav";
 
 const menuItems = ["Categories", "Website Builders", "Today's deals"];
 
-function Navbar() {
+function Navbar({ loading }) {
   const [popupDisplay, setPopupDisplay] = useState(false);
 
   return (
@@ -19,13 +19,13 @@ function Navbar() {
       />
       <nav id="navbar">
         <div className="navbar-container">
-          <InputNav />
-          <ul className="flex nav-flex">
+          <InputNav loading={loading} />
+          <ul className={`flex nav-flex ${loading ? "nav-flex-skeleton" : ""}`}>
             {menuItems.map((menu, idx) => (
               <li key={idx}>{menu}</li>
             ))}
           </ul>
-          <HamburgerIcon setPopupDisplay={setPopupDisplay} />
+          <HamburgerIcon setPopupDisplay={setPopupDisplay} loading={loading} />
         </div>
       </nav>
     </>

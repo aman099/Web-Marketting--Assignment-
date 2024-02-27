@@ -37,12 +37,12 @@ const mainCardData = [
   },
 ];
 
-function Card() {
+function Card({ loading }) {
   return (
     <article id="main-card center">
       {/* <div className="grid center main-card-grid"> */}
       <>
-        <CardGrid mainCardData={mainCardData} />
+        <CardGrid mainCardData={mainCardData} loading={loading} />
       </>
       {/* </div> */}
     </article>

@@ -1,4 +1,4 @@
-function CardFlexInfo({ data }) {
+function CardFlexInfo({ data, loading }) {
   const {
     p_span_1,
     p_span_2,
@@ -10,7 +10,7 @@ function CardFlexInfo({ data }) {
   } = data;
 
   return (
-    <div className="flex-2">
+    <div className={`flex-2 ${loading ? "flexInfoContSkeleton" : ""}`}>
       <div className="info">
         <p className="flex discount">
           <span>{p_span_1}</span>

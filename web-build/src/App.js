@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import "./App.scss";
 
 import Navbar from "./components/navbar/Navbar";
@@ -9,15 +10,28 @@ import SignUp from "./components/sign-up/SignUp";
 import Footer from "./components/footer/Footer";
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setLoading(false);
+    }, 10000);
+
+    // Clear function to prevent memory leaks
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, []);
+
   return (
     <div className="App">
-      <Navbar />
-      <Heading />
-      <SubHeading />
-      <Card />
-      <CardDeal />
-      <SignUp />
-      <Footer />
+      <Navbar loading={loading} />
+      <Heading loading={loading} />
+      <SubHeading loading={loading} />
+      <Card loading={loading} />
+      <CardDeal loading={loading} />
+      <SignUp loading={loading} />
+      <Footer loading={loading} />
     </div>
   );
 }

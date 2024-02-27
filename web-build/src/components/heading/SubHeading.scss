@@ -1,15 +1,16 @@
 @use "../../scss/partials/colors";
 @use "../../scss/partials/breakpoints";
+@use "../../scss/partials/mixins";
 
 .mat-1 {
   gap: 60px;
   padding-left: 16px;
-  color: var(--dark-grey);
+  color: colors.$dark-grey;
 }
 .mat-2 {
   gap: 20px;
   align-items: center;
-  color: var(--dark-grey);
+  color: colors.$dark-grey;
   .right-arr {
     height: 10px;
   }
@@ -55,3 +56,133 @@
     gap: 12px;
   }
 }
+
+/* Skeleton related styles */
+
+/* mat-1 skeleton  */
+.mat-1.mat-1-skeleton li {
+  position: relative;
+  color: transparent;
+  &::before {
+    @include mixins.beforePseudoSkeleton();
+    @include mixins.beforeKeyframes() {
+      0% {
+        background-color: #999;
+      }
+      50% {
+        background-color: #99999980;
+      }
+      100% {
+        background-color: #999;
+      }
+    }
+    // will take default animations
+    @include mixins.beforeSkeletonAnimation();
+  }
+  &::after {
+    @include mixins.afterPseudoSkeleton();
+    @include mixins.afterKeyframes() {
+      0% {
+        background-position: -450px 0;
+      }
+      100% {
+        background-position: 450px 0;
+      }
+    }
+    // will take default animations
+    @include mixins.afterSkeletonAnimation();
+  }
+}
+
+.mat-2.mat-2-skeleton li {
+  position: relative;
+  color: transparent;
+  &::before {
+    @include mixins.beforePseudoSkeleton();
+    @include mixins.beforeKeyframes() {
+      0% {
+        background-color: #999;
+      }
+      50% {
+        background-color: #99999980;
+      }
+      100% {
+        background-color: #999;
+      }
+    }
+    // will take default animations
+    @include mixins.beforeSkeletonAnimation();
+  }
+  &::after {
+    @include mixins.afterPseudoSkeleton();
+    @include mixins.afterKeyframes() {
+      0% {
+        background-position: -450px 0;
+      }
+      100% {
+        background-position: 450px 0;
+      }
+    }
+    // will take default animations
+    @include mixins.afterSkeletonAnimation();
+  }
+}
+
+/* Skeleton related styles */
+
+/* mat-1 skeleton  */
+.mat-1.mat-1-skeleton li {
+  position: relative;
+  color: transparent;
+}
+.mat-1.mat-1-skeleton li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  animation: dimBright infinite 1.5s ease-in;
+}
+.mat-1.mat-1-skeleton li::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  background: linear-gradient(to left, transparent, #c5c3c3e1, transparent);
+  background-size: 450px 400px;
+  background-repeat: no-repeat;
+  animation: moveRight 0.5s normal infinite;
+}
+/* mat-2 skeleton */
+// .mat-2.mat-2-skeleton li {
+//   position: relative;
+//   color: transparent;
+// }
+// .mat-2.mat-2-skeleton li::before {
+//   content: "";
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   height: 100%;
+//   width: 100%;
+//   border-radius: 10px;
+//   animation: dimBright infinite 1.5s ease-in;
+// }
+// .mat-2.mat-2-skeleton li::after {
+//   content: "";
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   height: 100%;
+//   width: 100%;
+//   border-radius: 10px;
+//   background: linear-gradient(to left, transparent, #c5c3c3e1, transparent);
+//   background-size: 450px 400px;
+//   background-repeat: no-repeat;
+//   animation: moveRight 0.5s normal infinite;
+// }

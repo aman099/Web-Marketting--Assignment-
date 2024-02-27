@@ -19,7 +19,7 @@ const materials2 = [
   "Hosting5",
 ];
 
-function SubHeading() {
+function SubHeading({ loading }) {
   let rightArrDisplay = true;
 
   function arrDisplay(idx) {
@@ -28,7 +28,11 @@ function SubHeading() {
 
   return (
     <div className="sub-heading center">
-      <ul className="flex p-left m-top-bot mat-1">
+      <ul
+        className={`flex p-left m-top-bot mat-1 ${
+          loading ? "mat-1-skeleton" : ""
+        }`}
+      >
         {materials.map((material, idx) => {
           return (
             <Fragment key={idx}>
@@ -37,7 +41,11 @@ function SubHeading() {
           );
         })}
       </ul>
-      <ul className="flex p-left m-top-bot mat-2">
+      <ul
+        className={`flex p-left m-top-bot mat-2 ${
+          loading ? "mat-2-skeleton" : ""
+        }`}
+      >
         {materials2.map((material2, idx) => {
           arrDisplay(idx);
           return (

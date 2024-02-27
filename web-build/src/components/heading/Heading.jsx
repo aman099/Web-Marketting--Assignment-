@@ -1,8 +1,8 @@
 import "./Heading.scss";
 
-function Heading() {
+function Heading({ loading }) {
   return (
-    <div className="heading center">
+    <div className={`heading center ${loading ? "headingSkeleton" : ""}`}>
       <h2>Best Website builders in the US</h2>
       <hr />
       <div className="date">

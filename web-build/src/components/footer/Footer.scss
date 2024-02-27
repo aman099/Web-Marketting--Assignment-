@@ -1,5 +1,6 @@
 @use "../../scss/partials/colors";
 @use "../../scss/partials/breakpoints";
+@use "../../scss/partials/mixins";
 
 #footer {
   background-color: colors.$black;
@@ -8,6 +9,7 @@
   .footer-container {
     color: colors.$lightish-grey;
     grid-template-columns: repeat(3, 1fr);
+    /* place-items: flex-start; */
     padding: 40px 0;
 
     .footer-menu {
@@ -68,6 +70,79 @@
             color: colors.$black;
           }
         }
+      }
+    }
+  }
+}
+
+// Skeleton related styles
+#footer {
+  .footer-container.skeleton-container {
+    .footer-menu.skeleton-menu {
+      li {
+        position: relative;
+        color: transparent;
+        overflow: hidden;
+        &::before {
+          @include mixins.beforePseudoSkeleton(50%);
+          @include mixins.beforeKeyframes() {
+            0% {
+              background-color: #999;
+            }
+            50% {
+              background-color: #99999980;
+            }
+            100% {
+              background-color: #999;
+            }
+          }
+          // will take default animations
+          @include mixins.beforeSkeletonAnimation();
+        }
+        &::after {
+          @include mixins.afterPseudoSkeleton(50%);
+          @include mixins.afterKeyframes() {
+            0% {
+              background-position: -450px 0;
+            }
+            100% {
+              background-position: 450px 0;
+            }
+          }
+          // will take default animations
+          @include mixins.afterSkeletonAnimation();
+        }
+        &:first-child {
+          color: transparent;
+        }
+      }
+    }
+  }
+}
+
+#footer {
+  .footer-container.skeleton-container {
+    .options {
+      position: relative;
+      select {
+        border: none;
+        color: transparent;
+      }
+      &::before {
+        @include mixins.beforePseudoSkeleton(50%, 12%);
+        @include mixins.beforeKeyframes() {
+          0% {
+            background-color: #999;
+          }
+          50% {
+            background-color: #99999980;
+          }
+          100% {
+            background-color: #999;
+          }
+        }
+        // will take default animations
+        @include mixins.beforeSkeletonAnimation();
       }
     }
   }

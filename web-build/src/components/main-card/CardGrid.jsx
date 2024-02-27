@@ -5,7 +5,7 @@ import GridRating from "./GridRating";
 import IdNumber from "./IdNumber";
 import ConditionalBestTag from "./ConditionalBestTag";
 
-function CardGrid({ mainCardData }) {
+function CardGrid({ mainCardData, loading }) {
   let conditionalBestTag = "";
 
   function TagSwitcher(idx) {
@@ -23,11 +23,12 @@ function CardGrid({ mainCardData }) {
             <ConditionalBestTag
               idx={idx}
               conditionalBestTag={conditionalBestTag}
+              loading={loading}
             />
-            <IdNumber idx={idx} />
-            <GridImg idx={idx} />
-            <GridInfo idx={idx} data={data} />
-            <GridRating idx={idx} data={data} />
+            <IdNumber idx={idx} loading={loading} />
+            <GridImg idx={idx} loading={loading} />
+            <GridInfo idx={idx} data={data} loading={loading} />
+            <GridRating idx={idx} data={data} loading={loading} />
           </div>
         );
       })}

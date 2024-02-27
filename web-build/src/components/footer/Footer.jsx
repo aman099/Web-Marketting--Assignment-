@@ -29,7 +29,7 @@ const footerData = [
   },
 ];
 
-function Footer() {
+function Footer({ loading }) {
   let contentDisplay = false;
   let extraMenu = false;
 
@@ -40,7 +40,11 @@ function Footer() {
 
   return (
     <footer id="footer">
-      <div className="center grid footer-container">
+      <div
+        className={`center grid footer-container ${
+          loading ? "skeleton-container" : ""
+        }`}
+      >
         {footerData.map((data, idx) => {
           BooleanSwitch(idx);
 
@@ -49,7 +53,7 @@ function Footer() {
           return (
             <Fragment key={idx}>
               {contentDisplay ? (
-                <ul className="flex footer-menu">
+                <ul className="flex footer-menu skeleton-menu">
                   <li>{title}</li>
                   <li>{menu_1}</li>
                   <li>{menu_2}</li>

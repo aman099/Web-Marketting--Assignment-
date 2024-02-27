@@ -1,4 +1,4 @@
-function PopupMenu({ popupDisplay, setPopupDisplay, menuItems }) {
+function PopupMenu({ popupDisplay, setPopupDisplay, menuItems, loading }) {
   return (
     <div className={`popup-menu ${popupDisplay ? "pop" : ""}`}>
       <span

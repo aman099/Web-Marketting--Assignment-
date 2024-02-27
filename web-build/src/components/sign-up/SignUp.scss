@@ -1,5 +1,6 @@
 @use "../../scss/partials/colors";
 @use "../../scss/partials/breakpoints";
+@use "../../scss/partials/mixins";
 
 .signup-container {
   justify-content: space-between;
@@ -73,4 +74,89 @@
       width: 11.75rem;
     }
   }
+}
+
+// Skeleton related styles
+.form.formSkeleton {
+  position: relative;
+  color: transparent;
+  background-color: transparent;
+  &::before {
+    @include mixins.beforePseudoSkeleton();
+    @include mixins.beforeKeyframes(dimBrightSignUp) {
+      0% {
+        background-color: #e5e5e5;
+      }
+      50% {
+        background-color: #e5e5e56e;
+      }
+      100% {
+        background-color: #e5e5e5;
+      }
+    }
+    // will take default animations
+    @include mixins.beforeSkeletonAnimation(dimBrightSignUp);
+  }
+  &::after {
+    @include mixins.afterPseudoSkeleton();
+    z-index: 2;
+    @include mixins.afterKeyframes() {
+      0% {
+        background-position: -450px 0;
+      }
+      100% {
+        background-position: 450px 0;
+      }
+    }
+    // will take default animations
+    @include mixins.afterSkeletonAnimation();
+  }
+}
+.signup-container.signupSkeleton-container h4 {
+  color: transparent;
+  position: relative;
+  &::before {
+    @include mixins.beforePseudoSkeleton(90%);
+    @include mixins.beforeKeyframes(dimBrightSignUp) {
+      0% {
+        background-color: #e5e5e5;
+      }
+      50% {
+        background-color: #e5e5e56e;
+      }
+      100% {
+        background-color: #e5e5e5;
+      }
+    }
+    // will take default animations
+    @include mixins.beforeSkeletonAnimation(dimBrightSignUp);
+  }
+  &::after {
+    @include mixins.afterPseudoSkeleton(90%);
+    @include mixins.afterKeyframes() {
+      0% {
+        background-position: -450px 0;
+      }
+      100% {
+        background-position: 450px 0;
+      }
+    }
+    // will take default animations
+    @include mixins.afterSkeletonAnimation();
+  }
+}
+.form.formSkeleton {
+  input {
+    &:focus {
+      border: none;
+      outline: none;
+    }
+  }
+}
+.btn-blue.mtop-0 .btn-view.signUpSkeletonBtn {
+  color: transparent;
+  background-color: transparent;
+}
+.btn-blue.mtop-0 .btn-view.signUpSkeletonBtn:hover {
+  box-shadow: none;
 }

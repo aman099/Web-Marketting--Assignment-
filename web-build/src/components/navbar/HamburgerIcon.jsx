@@ -1,6 +1,11 @@
-function HamburgerIcon({ setPopupDisplay }) {
+function HamburgerIcon({ setPopupDisplay, loading }) {
   return (
-    <div onClick={() => setPopupDisplay(true)} className="hamburger">
+    <div
+      onClick={() =>
+        !loading ? setPopupDisplay(true) : setPopupDisplay(false)
+      }
+      className={`hamburger ${loading ? "hamburger-skeleton" : ""}`}
+    >
       <span className="hamburger-container">
         <i className="fa-solid fa-bars"></i>
       </span>

@@ -174,3 +174,121 @@
     }
   }
 }
+
+// Skeleton-related styles
+/* Heading h2 skeleton */
+.heading.headingSkeleton h2 {
+  position: relative;
+  color: transparent;
+  &::before {
+    @include mixins.beforePseudoSkeleton(75%);
+    @include mixins.beforeKeyframes() {
+      0% {
+        background-color: #999;
+      }
+      50% {
+        background-color: #99999980;
+      }
+      100% {
+        background-color: #999;
+      }
+    }
+    // will take default animations
+    @include mixins.beforeSkeletonAnimation();
+  }
+  &::after {
+    @include mixins.afterPseudoSkeleton(75%);
+    @include mixins.afterKeyframes() {
+      0% {
+        background-position: -450px 0;
+      }
+      100% {
+        background-position: 450px 0;
+      }
+    }
+    // will take default animations
+    @include mixins.afterSkeletonAnimation();
+  }
+}
+
+/*  */
+.heading.headingSkeleton .date {
+  ul li {
+    position: relative;
+    color: transparent;
+    &::before {
+      @include mixins.beforePseudoSkeleton();
+      @include mixins.beforeKeyframes() {
+        0% {
+          background-color: #999;
+        }
+        50% {
+          background-color: #99999980;
+        }
+        100% {
+          background-color: #999;
+        }
+      }
+      // will take default animations
+      @include mixins.beforeSkeletonAnimation();
+    }
+    &::after {
+      @include mixins.afterPseudoSkeleton();
+      @include mixins.afterKeyframes() {
+        0% {
+          background-position: -450px 0;
+        }
+        100% {
+          background-position: 450px 0;
+        }
+      }
+      // will take default animations
+      @include mixins.afterSkeletonAnimation();
+    }
+  }
+  span:first-of-type {
+    border: none;
+    &:hover {
+      filter: none;
+    }
+    i {
+      opacity: 0;
+    }
+  }
+}
+
+.heading.headingSkeleton {
+  .date .right {
+    position: relative;
+    color: transparent;
+    &::before {
+      @include mixins.beforePseudoSkeleton();
+      @include mixins.beforeKeyframes() {
+        0% {
+          background-color: #999;
+        }
+        50% {
+          background-color: #99999980;
+        }
+        100% {
+          background-color: #999;
+        }
+      }
+      // will take default animations
+      @include mixins.beforeSkeletonAnimation();
+    }
+    &::after {
+      @include mixins.afterPseudoSkeleton();
+      @include mixins.afterKeyframes() {
+        0% {
+          background-position: -450px 0;
+        }
+        100% {
+          background-position: 450px 0;
+        }
+      }
+      // will take default animations
+      @include mixins.afterSkeletonAnimation();
+    }
+  }
+}

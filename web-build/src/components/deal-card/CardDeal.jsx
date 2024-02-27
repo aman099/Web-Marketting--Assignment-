@@ -32,12 +32,16 @@ const dealCardData = [
   },
 ];
 
-function CardDeal() {
+function CardDeal({ loading }) {
   return (
-    <div className="center card-deal-container">
+    <div
+      className={`center card-deal-container ${
+        loading ? "card-deal-container-skeleton" : ""
+      }`}
+    >
       <h3>Related deals you might like for</h3>
       <div className="grid card-deal">
-        <CardDealFlex dealCardData={dealCardData} />
+        <CardDealFlex dealCardData={dealCardData} loading={loading} />
       </div>
     </div>
   );

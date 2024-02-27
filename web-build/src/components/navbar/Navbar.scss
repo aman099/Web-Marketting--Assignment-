@@ -117,6 +117,13 @@
     gap: 40px;
     .nav-flex {
       gap: 80px;
+      li {
+        transition: color 0.2s;
+        &:hover {
+          color: colors.$orange;
+          cursor: pointer;
+        }
+      }
     }
   }
 }
@@ -132,8 +139,9 @@
     border-radius: 8px;
     outline: none;
     border: none;
-    transition: all 0.2s ease-in;
+    transition: all 0.4s ease-in;
     margin-right: 10px;
+    opacity: 1;
     &:focus {
       transform: scaleY(1.1);
       + span i {
@@ -214,6 +222,142 @@ ul {
               border: none;
             }
           }
+        }
+      }
+    }
+  }
+
+  /* Hamburger Icon Skeleton */
+  #navbar {
+    .navbar-container {
+      .hamburger.hamburger-skeleton {
+        position: relative;
+        &::before {
+          @include mixins.beforePseudoSkeleton();
+          @include mixins.beforeKeyframes() {
+            0% {
+              background-color: #999;
+            }
+            50% {
+              background-color: #99999980;
+            }
+            100% {
+              background-color: #999;
+            }
+          }
+          // will take default animations
+          @include mixins.beforeSkeletonAnimation();
+        }
+        &::after {
+          @include mixins.afterPseudoSkeleton();
+          @include mixins.afterKeyframes() {
+            0% {
+              background-position: -450px 0;
+            }
+            100% {
+              background-position: 450px 0;
+            }
+          }
+          // will take default animations
+          @include mixins.afterSkeletonAnimation();
+        }
+        .hamburger-container {
+          cursor: auto;
+          i {
+            color: transparent;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Skeleton related animations
+.input-container.input-container-skeleton {
+  &::before {
+    border-radius: 8px;
+    z-index: 9999999999;
+    @include mixins.beforePseudoSkeleton();
+    @include mixins.beforeKeyframes() {
+      0% {
+        background-color: #999;
+      }
+      50% {
+        background-color: #99999980;
+      }
+      100% {
+        background-color: #999;
+      }
+    }
+    // will take default animations
+    @include mixins.beforeSkeletonAnimation();
+  }
+  &::after {
+    border-radius: 8px;
+    z-index: 9999999999;
+    @include mixins.afterPseudoSkeleton();
+    @include mixins.afterKeyframes() {
+      0% {
+        background-position: -450px 0;
+      }
+      100% {
+        background-position: 450px 0;
+      }
+    }
+    // will take default animations
+    @include mixins.afterSkeletonAnimation();
+  }
+}
+
+.input-container.input-container-skeleton input {
+  opacity: 0;
+  cursor: auto;
+  &:focus + span i {
+    color: transparent;
+  }
+}
+.input-container.input-container-skeleton i {
+  top: 10px;
+  left: 10px;
+  color: transparent;
+}
+
+#navbar {
+  .navbar-container {
+    .nav-flex.nav-flex-skeleton {
+      li {
+        position: relative;
+        color: transparent;
+        &::before {
+          border-radius: 8px;
+          @include mixins.beforePseudoSkeleton();
+          @include mixins.beforeKeyframes() {
+            0% {
+              background-color: #999;
+            }
+            50% {
+              background-color: #99999980;
+            }
+            100% {
+              background-color: #999;
+            }
+          }
+          // will take default animations
+          @include mixins.beforeSkeletonAnimation();
+        }
+        &::after {
+          border-radius: 8px;
+          @include mixins.afterPseudoSkeleton();
+          @include mixins.afterKeyframes() {
+            0% {
+              background-position: -450px 0;
+            }
+            100% {
+              background-position: 450px 0;
+            }
+          }
+          // will take default animations
+          @include mixins.afterSkeletonAnimation();
         }
       }
     }

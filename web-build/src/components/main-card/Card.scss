@@ -265,6 +265,9 @@
   }
 }
 
+// @media only screen and (max-width: 1200px) {
+// }
+
 @media only screen and (max-width: breakpoints.$breakpoint_6) {
   .main-card-grid {
     display: flex;
@@ -289,4 +292,316 @@
   .absolute {
     z-index: 1;
   }
+}
+
+// Skeleton related styles
+
+/* Grid1Img Skeleton */
+
+.grid-1.gridImgSkeleton::before {
+  @include mixins.beforePseudoSkeleton();
+  @include mixins.beforeKeyframes() {
+    0% {
+      background-color: #999;
+    }
+    50% {
+      background-color: #99999980;
+    }
+    100% {
+      background-color: #999;
+    }
+  }
+  @include mixins.beforeSkeletonAnimation();
+}
+.grid-1.gridImgSkeleton::after {
+  @include mixins.afterPseudoSkeleton();
+  @include mixins.afterKeyframes() {
+    0% {
+      background-position: -450px 0;
+    }
+    100% {
+      background-position: 450px 0;
+    }
+  }
+  @include mixins.afterSkeletonAnimation();
+}
+.grid-1.gridImgSkeleton {
+  img {
+    opacity: 0;
+  }
+  figcaption {
+    color: transparent;
+  }
+  svg {
+    width: 30px;
+    position: absolute;
+    top: 56px;
+    right: 90px;
+    stroke: black;
+    opacity: 0.4;
+    animation: dimBrightFlexImg infinite 1.5s ease-in;
+  }
+}
+
+@keyframes dimBrightFlexImg {
+  0% {
+    background-color: #e4e4e4d6;
+  }
+  50% {
+    background-color: #f9f8f8;
+  }
+  100% {
+    background-color: #e4e4e4;
+  }
+}
+/*  */
+/* Grid2Info */
+.grid-2.gridInfoSkeleton .info p {
+  position: relative;
+  color: transparent;
+}
+.grid-2.gridInfoSkeleton .info p::before {
+  @include mixins.beforePseudoSkeleton();
+  @include mixins.beforeKeyframes() {
+    0% {
+      background-color: #999;
+    }
+    50% {
+      background-color: #99999980;
+    }
+    100% {
+      background-color: #999;
+    }
+  }
+  @include mixins.beforeSkeletonAnimation();
+}
+.grid-2.gridInfoSkeleton .info p::after {
+  @include mixins.afterPseudoSkeleton();
+  @include mixins.afterKeyframes() {
+    0% {
+      background-position: -450px 0;
+    }
+    100% {
+      background-position: 450px 0;
+    }
+  }
+  @include mixins.afterSkeletonAnimation();
+}
+
+.highlights .skeletonMainHighlights {
+  position: relative;
+  color: transparent;
+  &::before {
+    @include mixins.beforePseudoSkeleton(40%);
+    @include mixins.beforeKeyframes() {
+      0% {
+        background-color: #999;
+      }
+      50% {
+        background-color: #99999980;
+      }
+      100% {
+        background-color: #999;
+      }
+    }
+    @include mixins.beforeSkeletonAnimation();
+  }
+}
+
+.highlights .skeletonMainHighlights::after {
+  @include mixins.afterPseudoSkeleton(40%);
+  @include mixins.afterKeyframes() {
+    0% {
+      background-position: -450px 0;
+    }
+    100% {
+      background-position: 450px 0;
+    }
+  }
+  @include mixins.afterSkeletonAnimation();
+}
+/*  */
+/* Grid3Rating Skeleton */
+.grid-3-rating.gridRatingSkeleton .rating {
+  position: relative;
+  color: transparent;
+}
+.grid-3-rating.gridRatingSkeleton .rating .stars span {
+  opacity: 0;
+}
+.grid-3-rating.gridRatingSkeleton .rating::before {
+  @include mixins.beforePseudoSkeleton(100%);
+  @include mixins.beforeKeyframes() {
+    0% {
+      background-color: #999;
+    }
+    50% {
+      background-color: #99999980;
+    }
+    100% {
+      background-color: #999;
+    }
+  }
+  @include mixins.beforeSkeletonAnimation();
+  animation: dimBright infinite 1.5s ease-in;
+}
+.grid-3-rating.gridRatingSkeleton .rating::after {
+  @include mixins.afterPseudoSkeleton();
+  @include mixins.afterKeyframes() {
+    0% {
+      background-position: -450px 0;
+    }
+    100% {
+      background-position: 450px 0;
+    }
+  }
+  @include mixins.afterSkeletonAnimation();
+}
+
+.btn-view.btnRatingSkeleton {
+  position: relative;
+  background-color: transparent;
+  color: transparent;
+}
+.btn-view.btnRatingSkeleton:hover {
+  transform: none;
+  box-shadow: none;
+  filter: none;
+  cursor: auto;
+}
+.btn-view.btnRatingSkeleton::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #999;
+  border-radius: 10px;
+  animation: dimBright infinite 1.5s ease-in;
+  z-index: 5;
+}
+.btn-view.btnRatingSkeleton::after {
+  @include mixins.afterPseudoSkeleton();
+  @include mixins.afterKeyframes() {
+    0% {
+      background-position: -450px 0;
+    }
+    100% {
+      background-position: 450px 0;
+    }
+  }
+  @include mixins.afterSkeletonAnimation();
+  z-index: 5;
+}
+
+/* Fourth Conditional Box Skeleton */
+.fourth_conditinal.skeleton_fourth_conditional p {
+  display: inline-block;
+}
+.highlights-fourth.highlights-fourth-skeleton {
+  position: relative;
+  color: transparent;
+  background-color: transparent;
+}
+.highlights-fourth.highlights-fourth-skeleton::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  animation: dimBright infinite 1.5s ease-in;
+}
+.highlights-fourth.highlights-fourth-skeleton::after {
+  @include mixins.afterPseudoSkeleton();
+  @include mixins.afterKeyframes() {
+    0% {
+      background-position: -450px 0;
+    }
+    100% {
+      background-position: 450px 0;
+    }
+  }
+  @include mixins.afterSkeletonAnimation();
+}
+.highlights-fourth.highlights-fourth-skeleton li span {
+  color: transparent;
+  background-color: transparent;
+}
+
+.highlights-checked.highlights-checked-skeleton {
+  position: relative;
+  color: transparent;
+}
+.highlights-checked.highlights-checked-skeleton::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  animation: dimBright infinite 1.5s ease-in;
+}
+.highlights-checked.highlights-checked-skeleton::after {
+  @include mixins.afterPseudoSkeleton();
+  @include mixins.afterKeyframes() {
+    0% {
+      background-position: -450px 0;
+    }
+    100% {
+      background-position: 450px 0;
+    }
+  }
+  @include mixins.afterSkeletonAnimation();
+}
+.highlights-checked.highlights-checked-skeleton li span {
+  background-color: transparent;
+  color: transparent;
+}
+.show-more .show-more-btn.show-more-btn-skeleton {
+  position: relative;
+  color: transparent;
+}
+.show-more .show-more-btn.show-more-btn-skeleton::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  animation: dimBright infinite 1.5s ease-in;
+}
+.show-more .show-more-btn.show-more-btn-skeleton::after {
+  @include mixins.afterPseudoSkeleton();
+  @include mixins.afterKeyframes() {
+    0% {
+      background-position: -450px 0;
+    }
+    100% {
+      background-position: 450px 0;
+    }
+  }
+  @include mixins.afterSkeletonAnimation();
+}
+
+/* Absolute Conditional Best Tags Skeleton*/
+.absolute.bestTagSkeleton {
+  content: "";
+  position: absolute;
+  border-radius: 0 8px 8px 0;
+  color: transparent;
+  animation: dimBright infinite 1.5s ease-in;
+}
+
+/* Absolute ID Numbers Skeleton */
+.id-number.skeletonIdNumber {
+  content: "";
+  position: absolute;
+  border-radius: 24px;
+  color: transparent;
+  animation: dimBright infinite 1.5s ease-in;
 }

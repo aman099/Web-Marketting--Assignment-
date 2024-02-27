@@ -1,10 +1,18 @@
 import Computer from "../../assets/img/computer1.png";
 
-function CardFlexImg() {
+import CardFlexImgSkeleton from "./deal-card-skeleton/CardFlexImgSkeleton";
+
+function CardFlexImg({ loading }) {
   return (
-    <div className="flex-1">
-      <img src={Computer} alt="Computer" />
-    </div>
+    <>
+      {loading ? (
+        <CardFlexImgSkeleton />
+      ) : (
+        <div className="flex-1">
+          <img src={Computer} alt="Computer" />
+        </div>
+      )}
+    </>
   );
 }
 
