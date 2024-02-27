@@ -37,12 +37,16 @@ const mainCardData = [
   },
 ];
 
-function Card({ loading }) {
+function Card({ loading, selectedMenuID }) {
   return (
     <article id="main-card center">
       {/* <div className="grid center main-card-grid"> */}
       <>
-        <CardGrid mainCardData={mainCardData} loading={loading} />
+        <CardGrid
+          mainCardData={mainCardData}
+          loading={loading}
+          selectedMenuID={selectedMenuID}
+        />
       </>
       {/* </div> */}
     </article>

@@ -147,3 +147,22 @@
     }
   }
 }
+
+// Media Query
+@media only screen and (max-width: breakpoints.$breakpoint_11) {
+  // Signup section
+  .form input {
+    width: 8.75rem;
+    font-size: 9.5px;
+  }
+
+  // Footer section
+  #footer .footer-container .footer-menu li:first-child {
+    margin-bottom: 0;
+    font-size: 12px;
+  }
+
+  #footer .footer-container .footer-menu li:not(:first-child) {
+    font-size: 12px;
+  }
+}

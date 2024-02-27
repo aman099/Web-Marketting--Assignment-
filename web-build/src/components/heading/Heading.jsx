@@ -1,6 +1,17 @@
+import { useState } from "react";
 import "./Heading.scss";
 
-function Heading({ loading }) {
+const menuData = ["Top Relevant", "Top Newest", "Top Oldest", "Top year ago"];
+
+function Heading({ loading, menuCatcherID }) {
+  const [switchedOption, setSwitchedOption] = useState("");
+
+  function dataClick(idx, data) {
+    setSwitchedOption(data);
+    console.log(switchedOption);
+    menuCatcherID(idx);
+  }
+
   return (
     <div className={`heading center ${loading ? "headingSkeleton" : ""}`}>
       <h2>Best Website builders in the US</h2>
@@ -25,10 +36,19 @@ function Heading({ loading }) {
           </ul>
         </div>
         <div className="right">
-          <span>Top Relevant</span>
+          <span>{switchedOption || "Top Relevant"}</span>
           <span>
             <i className="fa-solid fa-chevron-down"></i>
           </span>
+          <div className="drop-down absolute-dropDown">
+            <ul>
+              {menuData.map((data, idx) => (
+                <li key={idx} onClick={(e) => dataClick(idx, data)}>
+                  {data}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
       <hr />

@@ -56,6 +56,11 @@
     gap: 12px;
   }
 }
+@media only screen and (max-width: breakpoints.$breakpoint_10) {
+  .sub-heading {
+    font-size: 10px;
+  }
+}
 
 /* Skeleton related styles */
 
@@ -158,31 +163,3 @@
   background-repeat: no-repeat;
   animation: moveRight 0.5s normal infinite;
 }
-/* mat-2 skeleton */
-// .mat-2.mat-2-skeleton li {
-//   position: relative;
-//   color: transparent;
-// }
-// .mat-2.mat-2-skeleton li::before {
-//   content: "";
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   height: 100%;
-//   width: 100%;
-//   border-radius: 10px;
-//   animation: dimBright infinite 1.5s ease-in;
-// }
-// .mat-2.mat-2-skeleton li::after {
-//   content: "";
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   height: 100%;
-//   width: 100%;
-//   border-radius: 10px;
-//   background: linear-gradient(to left, transparent, #c5c3c3e1, transparent);
-//   background-size: 450px 400px;
-//   background-repeat: no-repeat;
-//   animation: moveRight 0.5s normal infinite;
-// }

@@ -5,7 +5,7 @@ import GridRating from "./GridRating";
 import IdNumber from "./IdNumber";
 import ConditionalBestTag from "./ConditionalBestTag";
 
-function CardGrid({ mainCardData, loading }) {
+function CardGrid({ mainCardData, loading, selectedMenuID }) {
   let conditionalBestTag = "";
 
   function TagSwitcher(idx) {
@@ -17,9 +17,17 @@ function CardGrid({ mainCardData, loading }) {
     <>
       {mainCardData.map((data, idx) => {
         TagSwitcher(idx);
-        // const { strong, p1, p2, rating_h2, rating_p } = data;
         return (
-          <div className={`grid center main-card-grid`} key={idx}>
+          <div
+            className={`grid center main-card-grid ${
+              selectedMenuID !== "" && selectedMenuID !== 0
+                ? idx === selectedMenuID
+                  ? ""
+                  : "hidden"
+                : ""
+            }`}
+            key={idx}
+          >
             <ConditionalBestTag
               idx={idx}
               conditionalBestTag={conditionalBestTag}

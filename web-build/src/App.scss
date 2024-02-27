@@ -102,3 +102,9 @@ hr {
     max-width: maxwidth.$maxWidth_11;
   }
 }
+
+@media only screen and (max-width: breakpoints.$breakpoint_11) {
+  .center {
+    max-width: maxwidth.$maxWidth_12;
+  }
+}

@@ -65,6 +65,48 @@
     .right {
       display: flex;
       gap: 5px;
+      cursor: pointer;
+      position: relative;
+      transition: color 0.2s;
+      &:hover {
+        color: rgba(255, 127, 80, 0.863);
+        .drop-down {
+          display: block;
+          opacity: 1;
+          height: 120px;
+        }
+      }
+      .drop-down {
+        padding: 10px;
+        position: absolute;
+        top: 24px;
+        right: 0;
+        width: 100%;
+        height: 0px;
+        opacity: 0;
+        border-radius: 5px;
+        background-color: teal;
+        transition: height 0.5s ease, opacity 1s ease;
+        -webkit-transition: height 0.5s ease, opacity 1s ease;
+        -moz-transition: height 0.5s ease, opacity 1s ease;
+        -o-transition: height 0.5s ease, opacity 1s ease;
+        overflow: hidden;
+        ul {
+          height: 100%;
+          background-color: teal;
+          text-align: center;
+          white-space: nowrap;
+          li {
+            color: #fff;
+            margin-bottom: 5px;
+            font-size: 14px;
+            transition: filter 0.2s;
+            &:hover {
+              filter: opacity(0.7);
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -140,7 +182,7 @@
     }
   }
 }
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: breakpoints.$breakpoint_10) {
   .heading {
     .date {
       ul {
@@ -172,6 +214,58 @@
         font-size: small;
       }
     }
+  }
+}
+
+/// @Media-Queries for Drop-down
+@media only screen and (max-width: breakpoints.$breakpoint_8) {
+  /* Transition to clicking from hovering(since iti being a Mobile device size where user's cannot Hover) */
+  .heading .date .right:active .drop-down {
+    display: block;
+    opacity: 1;
+    height: 120px;
+  }
+
+  .heading .date .right .drop-down ul li {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: breakpoints.$breakpoint_9) {
+  .heading .date .right .drop-down ul li {
+    font-size: 11.5px;
+  }
+}
+
+@media only screen and (max-width: breakpoints.$breakpoint_10) {
+  .heading .date .right .drop-down ul li {
+    font-size: 9px;
+  }
+  .heading .date .right .drop-down {
+    padding: 4px;
+  }
+
+  .heading .date .right:hover .drop-down {
+    height: 85px;
+  }
+}
+@media only screen and (max-width: breakpoints.$breakpoint_11) {
+  .heading h2 {
+    line-height: 35px;
+  }
+
+  .heading .date .left .date-left li {
+    font-size: 10px;
+  }
+
+  .heading .date .right {
+    font-size: 10px;
+  }
+  .heading .date .right .drop-down ul li {
+    font-size: 7px;
+  }
+  .heading .date .right:hover .drop-down {
+    height: 70px;
   }
 }
 
@@ -261,6 +355,8 @@
   .date .right {
     position: relative;
     color: transparent;
+    background-color: transparent;
+    cursor: auto;
     &::before {
       @include mixins.beforePseudoSkeleton();
       @include mixins.beforeKeyframes() {
@@ -289,6 +385,11 @@
       }
       // will take default animations
       @include mixins.afterSkeletonAnimation();
+    }
+    &:hover {
+      .drop-down {
+        display: none;
+      }
     }
   }
 }

@@ -11,6 +11,12 @@ import Footer from "./components/footer/Footer";
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const [selectedMenuID, setSelectedMenuID] = useState("");
+
+  function menuCatcherID(menuID) {
+    setSelectedMenuID(menuID);
+    console.log(menuID);
+  }
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -26,9 +32,9 @@ function App() {
   return (
     <div className="App">
       <Navbar loading={loading} />
-      <Heading loading={loading} />
+      <Heading loading={loading} menuCatcherID={menuCatcherID} />
       <SubHeading loading={loading} />
-      <Card loading={loading} />
+      <Card loading={loading} selectedMenuID={selectedMenuID} />
       <CardDeal loading={loading} />
       <SignUp loading={loading} />
       <Footer loading={loading} />
